@@ -1,6 +1,8 @@
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    background-color:#121214;
+    color:white;
 }
 
 main > section.items h4 {
@@ -19,12 +21,15 @@ main {
 main > section.items {
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid lightgrey;
-    padding: 20px;
-    max-width: 500px;
-    min-width: 300px;
+    background-color: #1e1e22;
+
+    width: 50%;
+    height: 50%;
     justify-content: center;
-    
+    border-radius: 5px;
+    margin-left:15%;
+    margin-right:15%;
+    padding:15px;
 }
 
 section.items .product {
@@ -33,11 +38,11 @@ section.items .product {
     flex: 0 0 calc(33.333% - 24px);
     cursor: pointer;
     text-align: center;
+    border-radius:5px;
 }
 
 section.items .product.selected {
-    border: 2px solid rgb(29, 134, 233);
-
+    border: 4px solid #16a349;
 }
 
 section.items .photo img {
@@ -70,8 +75,14 @@ section.items  .description .quantity-area button {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border-radius:4px;
+    border:none;
+    padding:10px;
 }
-
+section.items  .description .quantity-area button:hover {
+    transition: 0.25s ease-in-out;
+background-color:rgba(255, 255, 255, 0.198);
+}
 section.items  .description .quantity-area .quantity {
     font-weight: bold;
     margin: 0 4px;
@@ -79,14 +90,18 @@ section.items  .description .quantity-area .quantity {
 
 
 section.summary {
-    background-color: rgb(245, 245, 245);
-    padding: 20px;
-    min-height: 200px;
-    min-width: 200px;
+    margin-top:1%;
+    background-color: #1e1e22;
+    padding: 15px;
+    width: 50%;
     text-align: center;
+    border-radius: 5px;
+    margin-left:15%;
+    margin-right:15%;
 }
 
 section.summary table {
+  
     width: 100%;
     padding-top: 12px;
     font-size: 11px;
@@ -94,8 +109,9 @@ section.summary table {
 }
 
 section.summary table tbody tr:last-of-type th {
-    border-top: 1px solid black;
-    padding-top: 4px;
+   
+    border-top: 1px solid rgba(255, 255, 255, 0.198);
+    padding:15px;
 }
 
 

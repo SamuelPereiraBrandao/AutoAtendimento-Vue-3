@@ -15,130 +15,24 @@
         
         <main id="app">
             
-            <section class="items">
-                <h4>Selecione os produtos</h4>
-                <div class="product selected">
-                    <div class="photo">
-                        <img src="img/big-mac.png">
+            <section class="items" >
+                <h4>{{product}}</h4>
+                <div 
+                class="product" 
+                v-for="product in products" 
+                @click="product.active = !product.active"
+                :class="{selected : product.active}"
+
+                >
+                    <div class="photo" >
+                        <img :src="product.photo">
                     </div>
-                    <div class="description">
-                        <span class="name">Big Mac</span>
-                        <span class="price">$ 5.99</span>
+                    <div class="description" >
+                        <span class="name">{{product.name}}</span>
+                        <span class="price">${{product.price}}</span>
                         <div class="quantity-area">
                             <button>-</button>
-                            <span class="quantity">1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="photo">
-                        <img src="img/mc-chicken.png">
-                    </div>
-                    <div class="description">
-                        <span class="name">Mc Chicken</span>
-                        <span class="price">$ 4.99</span>
-                        <div class="quantity-area">
-                            <button>-</button>
-                            <span class="quantity">1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="photo">
-                        <img src="img/double-cb.png">
-                    </div>
-                    <div class="description">
-                        <span class="name">Double Cheese Burger</span>
-                        <span class="price">$ 2.99</span>
-                        <div class="quantity-area">
-                            <button>-</button>
-                            <span class="quantity">1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="photo">
-                        <img src="img/fries.png">
-                    </div>
-                    <div class="description">
-                        <span class="name">Batata frita</span>
-                        <span class="price">$ 2.99</span>
-                        <div class="quantity-area">
-                            <button>-</button>
-                            <span class="quantity">1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="photo">
-                        <img src="img/nuggets.png">
-                    </div>
-                    <div class="description">
-                        <span class="name">Mc Nuggets</span>
-                        <span class="price">$ 3.49</span>
-                        <div class="quantity-area">
-                            <button>-</button>
-                            <span class="quantity">1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="photo">
-                        <img src="img/salad.png">
-                    </div>
-                    <div class="description">
-                        <span class="name">Salad</span>
-                        <span class="price">$ 2.79</span>
-                        <div class="quantity-area">
-                            <button>-</button>
-                            <span class="quantity">1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="photo">
-                        <img src="img/cola.png">
-                    </div>
-                    <div class="description">
-                        <span class="name">Coke</span>
-                        <span class="price">$ 1.99</span>
-                        <div class="quantity-area">
-                            <button>-</button>
-                            <span class="quantity">1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="photo">
-                        <img src="img/lipton.png">
-                    </div>
-                    <div class="description">
-                        <span class="name">Ice Tea</span>
-                        <span class="price">$ 1.99</span>
-                        <div class="quantity-area">
-                            <button>-</button>
-                            <span class="quantity">1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="photo">
-                        <img src="img/water.png">
-                    </div>
-                    <div class="description">
-                        <span class="name">Water</span>
-                        <span class="price">$ 1.49</span>
-                        <div class="quantity-area">
-                            <button>-</button>
-                            <span class="quantity">1</span>
+                            <span class="quantity">{{product.quantity}}</span>
                             <button>+</button>
                         </div>
                     </div>
@@ -169,8 +63,9 @@
             </section>
 
         </main>
-
+        <script src="https://unpkg.com/vue@next"></script>
         <script src="scripts.js"></script>
+
     </body>
 
 </html>

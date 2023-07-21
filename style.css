@@ -9,9 +9,10 @@ body {
 }
 #coupon{
     border-radius:5px;
-    margin:1px;
+    margin-right:5px;
     border:none;
     padding:5px;
+
 }
 .promo{
     width: 100%;
@@ -34,7 +35,7 @@ outline: 0;
     padding:5px;
     border-radius:5px;
     cursor:pointer;
-    margin-left:5px;
+    
 }
 .buttonIndex:hover{
     background-color:white;
@@ -74,17 +75,18 @@ main > section.items {
     border-radius: 5px;
     margin-left:15%;
     margin-right:15%;
-    padding:15px;
+    padding-bottom:20px;
     margin-top:2%;
 }
 
 section.items .product {
     border: 1px solid lightgrey;
-    margin: 6px;
+    margin: 5px;
     flex: 0 0 calc(33.333% - 24px);
     cursor: pointer;
     text-align: center;
     border-radius:5px;
+
   
 }
 
@@ -142,13 +144,12 @@ section.items  .description .quantity-area .quantity {
 section.summary {
     margin-top:1%;
     background-color: #1e1e22;
-    padding: 15px;
+
     width: 50%;
     text-align: center;
     border-radius: 5px;
     margin-left:15%;
     margin-right:15%;
-    margin-bottom:25%;
 }
 
 section.summary table {

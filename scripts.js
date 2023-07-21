@@ -22,29 +22,43 @@ var products = [
     },
     {
         "photo": "img/fries.png",
-        "name": "Batata frita",
-        "price": 8.00,
+        "name": "Batata Frita Pequena",
+        "price": 7.99,
+        "active": false,
+        "quantity": 1
+    },
+    {
+        "photo": "img/fries.png",
+        "name": "Batata Frita Grande",
+        "price": 9.99,
         "active": false,
         "quantity": 1
     },
     {
         "photo": "img/nuggets.png",
-        "name": "Mc Nuggets",
+        "name": "Mc Nuggets Pequena",
         "price": 10.49,
+        "active": false,
+        "quantity": 1
+    },
+    {
+        "photo": "img/nuggets.png",
+        "name": "Mc Nuggets Grande",
+        "price": 14.49,
         "active": false,
         "quantity": 1
     },
     {
         "photo": "img/salad.png",
         "name": "Salada",
-        "price": 24.79,
+        "price": 24.89,
         "active": false,
         "quantity": 1
     },
     {
         "photo": "img/cola.png",
         "name": "Coca Cola",
-        "price": 9.90,
+        "price": 9.99,
         "active": false,
         "quantity": 1
     },
@@ -58,14 +72,14 @@ var products = [
     {
         "photo": "img/water.png",
         "name": "Água",
-        "price": 1.49,
+        "price": 6.59,
         "active": false,
         "quantity": 1
     },
     {
         "photo": "img/water.png",
-        "name": "Água com gás",
-        "price": 1.85,
+        "name": "Água Com Gás",
+        "price": 6.99,
         "active": false,
         "quantity": 1
     }

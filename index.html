@@ -43,7 +43,7 @@
                         <tr v-if="couponApplied">
                             <th >Total</th>
                             <th> 
-                                R$ <span style="text-decoration: line-through"> {{(productNoDiscountIndex).toFixed(2)}}</span> 
+                                <span style="color:#fe4f5a; text-decoration: line-through">R$ {{(productNoDiscountIndex).toFixed(2)}}</span> 
                                 <br>
                                 R$ {{(total()).toFixed(2)}}
                             </th>
@@ -57,16 +57,11 @@
                 </table>
                 <hr>
                 <h4 style="color:#16a349; padding:0; margin:0;">Pedido enviado com sucesso!</h4>
-                <h6 style="padding:0; margin:0;">Você será redirecionado para página inicial em 5 segundos!</h6>
+                <h6 style="padding:0; margin:0; margin-bottom:2%;">Você será redirecionado para página inicial em 5 segundos!</h6>
             </section>
             </template> 
                     <template class="appIndex" v-if="showAppIndex">
-            <div class="promo">
-                <h5>Alguns cupons para você aproveitar o máximo:</h5>
-                <h6>CUPOMNOVO: 0.5, // 50% de desconto<br>
-                    DESCONTO30: 0.35, // 35% de desconto<br>
-                    SAMU2023: 0.2, // 20% de desconto</h6>
-            </div>
+        
             <section class="items" >
                 <h4>{{product}}</h4>
                 <div 
@@ -119,7 +114,7 @@
                         <tr v-if="couponApplied">
                             <th >Total</th>
                             <th> 
-                                R$ <span style="text-decoration: line-through"> {{(productNoDiscountIndex).toFixed(2)}}</span> 
+                                 <span style="color:#fe4f5a; text-decoration: line-through">R$ {{(productNoDiscountIndex).toFixed(2)}}</span> 
                                 <br>
                                 R$ {{(total()).toFixed(2)}}
                             </th>
@@ -140,11 +135,16 @@
                   <div v-if="couponApplied" >Cupom aplicado! {{couponCodeIndex}}
                     <!-- <button class="buttonIndex" @click="applyCoupon2">Remover cupom</button> -->
                   </div>
-                  <button class="buttonIndex" @click="hideAppIndex" style="width:100%; margin-top:2%; padding:5px; background-color:#16a349;">
+                  <button class="buttonIndex" @click="hideAppIndex" style="width:100%; margin-top:2%; background-color:#16a349; margin-bottom:0%">
                     FINALIZAR PEDIDO
                   </button>
             </section>
-      
+            <div class="promo" style="margin-bottom:25%; margin-top:5%;">
+                <h6>Alguns cupons para você aproveitar o máximo:<br>
+                    CUPOMNOVO: 0.5, // 50% de desconto<br>
+                    DESCONTO30: 0.35, // 35% de desconto<br>
+                    SAMU2023: 0.2, // 20% de desconto</h6>
+            </div>
               
           
         </template>

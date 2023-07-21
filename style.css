@@ -1,10 +1,56 @@
+*{
+    transition: 0.15s ease-in-out;
+}
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     background-color:#121214;
     color:white;
 }
+#coupon{
+    border-radius:5px;
+    margin:1px;
+    border:none;
+    padding:5px;
+}
+.promo{
+    width: 100%;
+    height: 100%;
 
+    text-align: center;
+}
+.promo h6,h5{
+    margin-bottom:2px;
+    padding:0px;
+}
+.coupon-area  input:focus{
+box-shadow : 0 0 0 0;
+outline: 0;
+}
+.buttonIndex {
+    background-color:transparent;
+    color:white;
+    border:1px solid white;
+    padding:5px;
+    border-radius:5px;
+    cursor:pointer;
+    margin-left:5px;
+}
+.buttonIndex:hover{
+    background-color:white;
+    color:black;
+    cursor:pointer;
+}
+
+
+
+
+
+.noProductsSelected{
+    width: 100%;
+    height: 100%;
+    text-align:center;
+}
 main > section.items h4 {
     text-align: center;
     margin-top: 0;
@@ -22,7 +68,6 @@ main > section.items {
     display: flex;
     flex-wrap: wrap;
     background-color: #1e1e22;
-
     width: 50%;
     height: 50%;
     justify-content: center;
@@ -30,6 +75,7 @@ main > section.items {
     margin-left:15%;
     margin-right:15%;
     padding:15px;
+    margin-top:2%;
 }
 
 section.items .product {
@@ -39,6 +85,7 @@ section.items .product {
     cursor: pointer;
     text-align: center;
     border-radius:5px;
+  
 }
 
 section.items .product.selected {
@@ -47,8 +94,11 @@ section.items .product.selected {
 
 section.items .photo img {
     max-width: 90px;
+    
 }
-
+.photo {
+    border-radius:50px;
+}
 section.items .description {
     display: flex;
     flex-direction: column;
@@ -98,6 +148,7 @@ section.summary {
     border-radius: 5px;
     margin-left:15%;
     margin-right:15%;
+    margin-bottom:25%;
 }
 
 section.summary table {
@@ -111,7 +162,7 @@ section.summary table {
 section.summary table tbody tr:last-of-type th {
    
     border-top: 1px solid rgba(255, 255, 255, 0.198);
-    padding:15px;
+    padding:5px;
 }
 
 

@@ -14,7 +14,59 @@
     <body>
         
         <main id="app">
-            
+            <template v-if="!showAppIndex">
+          
+                <section class="summary">
+                    <h3>Resumo do pedido:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+      <tr v-for="product in products" :key="product.id" >
+                            <template v-if="product.active">
+                                <td>{{product.quantity + 'x ' + product.name}}</td>
+                                <td>R$ {{(product.price * product.quantity).toFixed(2)}}</td>
+                                
+                            </template>
+                      
+
+                        </tr>
+                        
+                        <tr v-if="!couponApplied">
+                            <th >Total</th>
+                            <th>R$ {{(total()).toFixed(2)}}</th>
+                        </tr>
+                        <tr v-if="couponApplied">
+                            <th >Total</th>
+                            <th> 
+                                R$ <span style="text-decoration: line-through"> {{(productNoDiscountIndex).toFixed(2)}}</span> 
+                                <br>
+                                R$ {{(total()).toFixed(2)}}
+                            </th>
+                        </tr>
+                        
+                      
+
+
+                    </tbody>
+                    
+                </table>
+                <hr>
+                <h4 style="color:#16a349; padding:0; margin:0;">Pedido enviado com sucesso!</h4>
+                <h6 style="padding:0; margin:0;">Você será redirecionado para página inicial em 5 segundos!</h6>
+            </section>
+            </template> 
+                    <template class="appIndex" v-if="showAppIndex">
+            <div class="promo">
+                <h5>Alguns cupons para você aproveitar o máximo:</h5>
+                <h6>CUPOMNOVO: 0.5, // 50% de desconto<br>
+                    DESCONTO30: 0.35, // 35% de desconto<br>
+                    SAMU2023: 0.2, // 20% de desconto</h6>
+            </div>
             <section class="items" >
                 <h4>{{product}}</h4>
                 <div 
@@ -22,24 +74,25 @@
                 v-for="product in products" 
                 @click="product.active = !product.active"
                 :class="{selected : product.active}"
-
                 >
                     <div class="photo" >
                         <img :src="product.photo">
                     </div>
                     <div class="description" >
                         <span class="name">{{product.name}}</span>
-                        <span class="price">${{product.price}}</span>
-                        <div class="quantity-area">
-                            <button>-</button>
+                        <span class="price">R$ {{(product.price).toFixed(2)}}</span>
+                        <div class="quantity-area" v-if="product.active">
+                            <button @click.stop="product.quantity--" :disabled="product.quantity <= 1">-</button>
                             <span class="quantity">{{product.quantity}}</span>
-                            <button>+</button>
+                            <button @click.stop="product.quantity++" :disabled="product.quantity == 10">+</button>
                         </div>
                     </div>
                 </div>
             </section>
-
-            <section class="summary">
+            <div class="noProductsSelected">
+            <h4 v-if="!hasActiveProducts">Nenhum produto selecionado!</h4>
+        </div>
+            <section class="summary" v-if="hasActiveProducts">
                 <strong>Resumo do pedido</strong>
                 <table>
                     <thead>
@@ -48,20 +101,53 @@
                             <th>Total</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1x Big Mac</td>
-                            <td>5.99</td>
+                    <tbody >
+      <tr v-for="product in products" :key="product.id" >
+                            <template v-if="product.active">
+                                <td>{{product.quantity + 'x ' + product.name}}</td>
+                                <td>R$ {{(product.price * product.quantity).toFixed(2)}}</td>
+                                
+                            </template>
+                      
+
                         </tr>
                         
-                        <tr>
-                            <th>Total</th>
-                            <th>5.99</th>
+                        <tr v-if="!couponApplied">
+                            <th >Total</th>
+                            <th>R$ {{(total()).toFixed(2)}}</th>
                         </tr>
+                        <tr v-if="couponApplied">
+                            <th >Total</th>
+                            <th> 
+                                R$ <span style="text-decoration: line-through"> {{(productNoDiscountIndex).toFixed(2)}}</span> 
+                                <br>
+                                R$ {{(total()).toFixed(2)}}
+                            </th>
+                        </tr>
+                        
+                
+
                     </tbody>
                 </table>
+                <hr>
+        
+                <div class="coupon-area" v-if="!couponApplied">
+                    <label for="coupon">Cupom:</label>
+                    <input type="text" id="coupon" v-model="couponCode" :disabled="couponApplied">
+                    <button @click="applyCoupon" :disabled="couponApplied" class="buttonIndex">Aplicar</button>
+                  </div>
+           
+                  <div v-if="couponApplied" >Cupom aplicado! {{couponCodeIndex}}
+                    <!-- <button class="buttonIndex" @click="applyCoupon2">Remover cupom</button> -->
+                  </div>
+                  <button class="buttonIndex" @click="hideAppIndex" style="width:100%; margin-top:2%; padding:5px; background-color:#16a349;">
+                    FINALIZAR PEDIDO
+                  </button>
             </section>
-
+      
+              
+          
+        </template>
         </main>
         <script src="https://unpkg.com/vue@next"></script>
         <script src="scripts.js"></script>
